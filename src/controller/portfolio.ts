@@ -30,7 +30,7 @@ export async function getWorkData() {
         const { db } = await connectToDatabase();
         const work = await db.collection('work');
 
-        const result = await work.find({}).toArray();
+        const result = await work.find({}).sort({ order: -1, i: -1 }).toArray();
         return { work : result };
     } catch (error) {
         return { message : 'Failed to fetch data' };

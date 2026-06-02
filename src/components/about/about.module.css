@@ -1,10 +1,114 @@
 .aboutSection {
     position: relative;
     width: 100%;
+    z-index: 2;
+    background: #f8fafc;
 
+    --about-bg: #f1f5f9;
+    --about-text: #0f172a;
+    --about-text-dim: #64748b;
+    --about-card-bg: #ffffff;
+    --about-card-border: rgba(15, 23, 42, 0.1);
+    --about-card-shadow: 0 12px 40px rgba(15, 23, 42, 0.07);
+    --about-card-shadow-hover: 0 20px 48px rgba(59, 130, 246, 0.12);
+    --skill-card-w: min(420px, 58vw);
+    --skill-card-anchor-y: min(220px, 34vw);
+
+    color: var(--about-text);
+}
+
+.stickyStage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2%;
+    background: #f8fafc;
+}
+
+.triangleStage {
+    position: relative;
+    width: min(920px, 98vw);
+    height: min(620px, 72vh);
+}
+
+.introCenter {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 2%;
+    text-align: center;
+    pointer-events: none;
+    opacity: 1;
+    transition: z-index 0s;
+}
+
+.introCenter .introContent {
+    padding-top: 0;
+}
+
+.centerMatrix {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1;
-    overflow-x: hidden;
-    padding: 100px 40px;
+    pointer-events: none;
+}
+
+.centerMatrixAsset {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: invert(1) contrast(1.15);
+    opacity: 0.32;
+    pointer-events: none;
+}
+
+.introContent {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.introContent .wrap {
+    flex-shrink: 0;
+}
+
+.introStageStatic {
+    position: relative;
+    width: min(580px, 92vw);
+    min-height: min(400px, 52vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.introStageStatic .centerMatrix {
+    position: absolute;
+    inset: 0;
+}
+
+.introStageStatic .centerMatrixAsset {
+    opacity: 0.32;
+}
+
+.introStageStatic .introContent {
+    padding-top: 8%;
 }
 
 .aboutHeading {
@@ -12,168 +116,293 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .wrap {
-    width: 400px;
+    width: min(380px, 80%);
 }
 
 .mySVG {
     width: 100%;
     height: 100%;
-} 
+}
 
 .mySVG path {
-    stroke: var(--main-color);
-    stroke-width: 20px;
+    stroke: var(--about-text);
+    stroke-width: 16px;
 }
 
 .quoteTextBG {
-    color: #fff !important;
-    fill: #fff !important;
+    color: #f8fafc !important;
+    fill: #f8fafc !important;
 }
 
 .quoteText {
     padding: 0.5em;
-    font-size: 50px;
-    color: var(--main-color);
-    fill: var(--main-color);
-
-    font-family: 'Montserrat',sans-serif !important;
+    font-size: clamp(1.75rem, 4vw, var(--text-3xl));
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
+    color: var(--about-text);
+    fill: var(--about-text);
+    font-family: var(--font-display) !important;
 }
 
 .aboutSection .desc {
-    padding: 18px 7% 0;
-}
-
-.aboutSection .desc p{
-    font-size: 18px;
-    text-align: center;
-
-    padding: 0 100px;
-
-    color: #0e2431c9;
-    font-family: 'Montserrat',sans-serif;
-
-    opacity: 0;
-}
-
-.aboutDescAnimation {
-    animation: movedown 0.7s ease forwards;
-    animation-delay: 0.4s;
-}
-
-
-@keyframes movedown {
-    0% {
-        opacity: 1;
-        transform: translateY(-40px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-.skillSection {
+    padding: 20px 45px 0;
     width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    pointer-events: none;
+}
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
+.aboutSection .desc p {
+    font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
+    line-height: 1.65;
+    letter-spacing: -0.011em;
+    text-align: center;
+    padding: 0 12px;
+    color: var(--about-text-dim);
+    font-family: var(--font-body);
+    font-weight: 400;
+    opacity: 1;
+}
 
-    margin-top: 80px;
-    margin-bottom: 80px;
+.stackDeck {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
 }
 
 .skillCard {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--skill-card-w);
+    max-width: calc(100% - 24px);
+    margin-left: calc(var(--skill-card-w) / -2);
+    margin-top: calc(var(--skill-card-anchor-y) * -1);
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-
-    width: 360px;
-    margin: 0 18px;
-    
-
-    opacity: 0;
-
-    background: var(--primary-color);
-    border-radius: 8px;
+    overflow: visible;
+    border-radius: 16px;
+    border: 1px solid var(--about-card-border);
+    box-shadow: var(--about-card-shadow);
+    transform-origin: center center;
+    will-change: transform, opacity;
+    pointer-events: auto;
+    isolation: isolate;
+    background: var(--about-card-bg);
 }
 
-.skillCardAnimation {
-    animation: slideLeft 0.7s ease forwards;
-    animation-delay: calc(.1s * var(--i));
+.matrixBg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
 }
 
-@keyframes slideLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(140px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
+.skillCardContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 28px 28px 24px;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.72) 0%,
+        rgba(255, 255, 255, 0.94) 38%,
+        rgba(255, 255, 255, 0.98) 100%
+    );
+}
 
-.skillCard h2 {
-    font-size: 2rem;
+.skillCardStatic .skillCardContent {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 28px 28px 24px;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.72) 0%,
+        rgba(255, 255, 255, 0.94) 38%,
+        rgba(255, 255, 255, 0.98) 100%
+    );
+}
+.skillCardStatic,
+.settledGrid .skillCardStatic {
+    position: relative;
+    opacity: 1;
+    width: var(--skill-card-w);
+    max-width: calc(100% - 24px);
+    margin: 16px 18px;
+    transform: none;
+    overflow: hidden;
+    border-radius: 14px;
+    border: 1px solid var(--about-card-border);
+    box-shadow: var(--about-card-shadow);
+    background: var(--about-card-bg);
+}
+
+.skillCard:hover {
+    border-color: rgba(59, 130, 246, 0.32);
+    box-shadow: var(--about-card-shadow-hover);
+}
+
+.skillCard h2,
+.skillCardStatic h2 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
     margin-bottom: 1rem;
-    padding-top: 1em;
-    line-height: 1.25;
-    color: #333;
+    padding-top: 0;
+    color: var(--about-text);
+    text-align: center;
 }
 
-
-.skillCard p {
-    font-size: 16px;
-    line-height: 24px;
+.skillCard p,
+.skillCardStatic p {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    letter-spacing: -0.008em;
     text-align: center;
-    margin: 1em 0;
-
-    color: #0e2431c9;
-    font-family: 'Montserrat',sans-serif;
+    margin: 0.65em 0 0;
+    padding: 0 6px;
+    color: var(--about-text-dim);
+    font-family: var(--font-body);
+    font-weight: 400;
+    overflow: visible;
+    word-break: break-word;
 }
 
 .iconContainer {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-
-    margin: 20px 0 10px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 8px 0 6px;
 }
 
 .iconContainer img {
-    height: 55px;
-    background: #fff;
+    height: 52px;
+    width: 52px;
+    object-fit: contain;
+    padding: 8px;
+    background: rgba(241, 245, 249, 0.85);
+    border-radius: 10px;
+    border: 1px solid var(--about-card-border);
+    box-shadow: 0 1px 6px rgba(15, 23, 42, 0.04);
 }
 
-
+.settledGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 24px 80px;
+}
 
 @media screen and (max-width: 600px) {
-    .aboutSection {
-        padding: 100px 0;
+    .triangleStage {
+        width: min(420px, 98vw);
+        height: min(540px, 62vh);
+    }
+
+    .centerMatrixAsset {
+        width: min(520px, 96%);
+        max-height: min(320px, 48vh);
+        opacity: 0.28;
+    }
+
+    .introStageStatic {
+        width: min(480px, 96vw);
+        min-height: min(340px, 48vh);
     }
 
     .wrap {
-        width: 100%;
-    }
-
-    .aboutSection .desc p {
+        width: min(300px, 86%);
         padding: 0;
     }
 
-    .aboutSection h2 {
-        margin-top: 1rem;
+    .aboutSection .desc {
+        max-width: 340px;
+        padding-top: 12px;
     }
 
-    .skillCardAnimation {
-        animation-delay: calc(.2s * var(--i));
+    .aboutSection .desc p {
+        font-size: 0.875rem;
+        line-height: 1.58;
+    }
+
+    .aboutSection {
+        --skill-card-w: min(340px, 92vw);
+        --skill-card-anchor-y: min(200px, 38vw);
+    }
+
+    .skillCard {
+        margin-left: calc(var(--skill-card-w) / -2);
+        margin-top: calc(var(--skill-card-anchor-y) * -1);
+    }
+
+    .skillCardContent {
+        padding: 22px 20px 20px;
+    }
+
+    .skillCard h2,
+    .skillCardStatic h2 {
+        font-size: 1rem;
+    }
+
+    .skillCard p,
+    .skillCardStatic p {
+        font-size: 0.875rem;
+    }
+
+    .iconContainer img {
+        height: 46px;
+        width: 46px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aboutSection {
+        height: auto !important;
+        padding: 100px 0 80px;
+    }
+
+    .stickyStage {
+        position: relative;
+        height: auto;
+    }
+
+    .introCenter {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        opacity: 1;
+    }
+
+    .triangleStage {
+        position: relative;
+        height: auto;
+        min-height: 420px;
+    }
+
+    .stackDeck {
+        display: none;
+    }
+
+    .skillCard {
+        will-change: auto;
     }
 }

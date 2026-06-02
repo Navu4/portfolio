@@ -9,6 +9,7 @@ import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import SEOComp from '@/utils/SEO';
 import { useEffect } from 'react';
 import { updateWebsiteVisitCount } from '@/lib/api';
+import Reveal from '@/components/motion/Reveal';
  
 export const getServerSideProps: GetServerSideProps<{
   data: {
@@ -53,9 +54,9 @@ export default function MainPage(props : Props) {
       />
       <Home {...props.data.metaData} isMobile={props.isMobile} />
       <About {...props.data.about} isMobile={props.isMobile} />
-      <Work work={props.data.work} isMobile={props.isMobile} />
-      <InfoComp />
-      <ContactForm />
+      <Reveal amount={0.1}><Work work={props.data.work} isMobile={props.isMobile} /></Reveal>
+      <Reveal amount={0.15}><InfoComp /></Reveal>
+      <Reveal amount={0.15}><ContactForm /></Reveal>
     </>
   )
 }

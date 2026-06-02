@@ -1,0 +1,65 @@
+.splitCta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    padding: 15px 50px;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: transparent;
+    overflow: hidden;
+    z-index: 1;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.splitCta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--accent-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: 0;
+}
+
+.splitCta:hover::before {
+    transform: scaleX(1);
+}
+
+.splitCtaLabel {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    color: var(--text);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.splitCta:hover .splitCtaLabel {
+    color: #04122e;
+}
+
+.heroEnter {
+    margin-top: 4px;
+    opacity: 0;
+    animation: splitCtaSlideTop 0.4s ease forwards;
+    animation-delay: 0.42s;
+}
+
+@keyframes splitCtaSlideTop {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

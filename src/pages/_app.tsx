@@ -5,11 +5,28 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import NextNProgress from "nextjs-progressbar";
+import { Inter, Space_Grotesk } from "next/font/google";
+
+const inter = Inter({
+    subsets: ["latin"],
+    variable: "--font-inter",
+    display: "swap",
+});
+const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-space-grotesk",
+    display: "swap",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         setIsMobile(UtilityFunction.isMobileDevice());
+        document.documentElement.classList.add(
+            inter.variable,
+            spaceGrotesk.variable
+        );
     }, []);
     return (
         <>
@@ -54,10 +71,12 @@ export default function App({ Component, pageProps }: AppProps) {
                     href="https://res.cloudinary.com/dr4kgyjzt/image/upload/v1693137206/gj9n7rvccadhplh5vyvr.png"
                 />
             </Head>
-            <Layout isMobile={isMobile}>
-                <NextNProgress color="#0e2431" />
-                <Component isMobile={isMobile} {...pageProps} />
-            </Layout>
+            <div className={`${inter.variable} ${spaceGrotesk.variable} ${inter.className}`}>
+                <Layout isMobile={isMobile}>
+                    <NextNProgress color="#3b82f6" />
+                    <Component isMobile={isMobile} {...pageProps} />
+                </Layout>
+            </div>
         </>
     );
 }

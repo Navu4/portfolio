@@ -1,10 +1,8 @@
 import styles from '@/components/home/home.module.css';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import { CSSProperties, FC, memo } from 'react';
-import Image from 'next/image';
-
-const ParticleInstance = dynamic(() => import("../particle"));
+import { CSSProperties, FC } from 'react';
+import HeroVisual from './HeroVisual';
+import ResumeCta from './ResumeCta';
 
 type Profession = { text : string, i : number }
 export interface HomeProps {
@@ -27,39 +25,13 @@ const Home : FC<HomeProps> = (props) => {
 
             <SocialMediaLinks socialMedia={props.socialMedia} />
 
-            <a href={props.resumeUrl} className={styles.downloadCV} target='_blank'>Download CV</a>
+            <ResumeCta resumeUrl={props.resumeUrl} />
         </div>
-        {!props.isMobile && <ProfessionSection coverImgUrl={props.coverImgUrl} profession={props.professionAnimationData} />}
+        {!props.isMobile && <HeroVisual />}
     </section>
   )
 }
 export default Home
-
-
-const ProfessionSection = function Section({ profession, coverImgUrl } : { profession : Profession[], coverImgUrl : string }) {
-    return (
-        <>
-            <div className={styles.professionContainer}>
-                <div className={styles.professionBox}>
-                    {
-                        profession.map(prof => (
-                            <div key={prof.i} className={styles.profession}  style={{ "--i" : prof.i } as CSSProperties}>
-                                <h3>{prof.text}</h3>
-                            </div>
-                        ))
-                    }
-                    <div className={styles.circle}></div>
-                </div>
-                <div className={styles.overlay}></div>
-                <div className={styles.myImage}>
-                    <Image src={coverImgUrl} alt="navjot_cover_img" height="590" width="608" />
-                </div>
-                <ParticleInstance id="tsparticle2" />
-            </div>
-            
-        </>
-    )
-};
 
 export const SocialMediaLinks = ({socialMedia, styleOpposite} : { styleOpposite?: boolean, socialMedia : { name : string, i : number, link : string }[] }) => <div className={`${styles.socialMedia} ${styleOpposite ? styles.oppositeSocalMedia : ''}`}>
 {    socialMedia.map(media => (
