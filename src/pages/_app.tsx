@@ -73,7 +73,7 @@ export default function App({ Component, pageProps }: AppProps) {
             </Head>
             <div className={`${inter.variable} ${spaceGrotesk.variable} ${inter.className}`}>
                 <Layout isMobile={isMobile}>
-                    <NextNProgress color="#3b82f6" />
+                    <NextNProgress color="#b8ffb9" />
                     <Component isMobile={isMobile} {...pageProps} />
                 </Layout>
             </div>

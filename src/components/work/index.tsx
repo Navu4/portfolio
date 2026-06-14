@@ -194,9 +194,9 @@ const Work = (props: Props) => {
                                 x2="0"
                                 y2={svgSize.h}
                             >
-                                <stop offset="0%" stopColor="rgba(59,130,246,0.2)" />
-                                <stop offset="50%" stopColor="rgba(59,130,246,0.75)" />
-                                <stop offset="100%" stopColor="rgba(158,197,255,0.35)" />
+                                <stop offset="0%" stopColor="rgba(184,255,185,0.2)" />
+                                <stop offset="50%" stopColor="rgba(184,255,185,0.75)" />
+                                <stop offset="100%" stopColor="rgba(216,255,219,0.35)" />
                             </linearGradient>
                         </defs>
                         <path

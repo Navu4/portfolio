@@ -18,7 +18,7 @@ const HeroVisual = () => {
     const glowX = useMotionValue(50);
     const glowY = useMotionValue(40);
 
-    const glow = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(59,130,246,0.14), transparent 58%)`;
+    const glow = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(184,255,185,0.14), transparent 58%)`;
 
     const handlePointerMove = (event: PointerEvent<HTMLDivElement>) => {
         if (reduceMotion) return;

@@ -10,8 +10,8 @@
     --about-card-bg: #ffffff;
     --about-card-border: rgba(15, 23, 42, 0.1);
     --about-card-shadow: 0 12px 40px rgba(15, 23, 42, 0.07);
-    --about-card-shadow-hover: 0 20px 48px rgba(59, 130, 246, 0.12);
-    --skill-card-w: min(420px, 58vw);
+    --about-card-shadow-hover: 0 20px 48px rgba(184, 255, 185, 0.12);
+    --skill-card-w: min(500px, 64vw);
     --skill-card-anchor-y: min(220px, 34vw);
 
     color: var(--about-text);
@@ -251,7 +251,7 @@
 }
 
 .skillCard:hover {
-    border-color: rgba(59, 130, 246, 0.32);
+    border-color: rgba(184, 255, 185, 0.32);
     box-shadow: var(--about-card-shadow-hover);
 }
 
@@ -343,7 +343,7 @@
     }
 
     .aboutSection {
-        --skill-card-w: min(340px, 92vw);
+        --skill-card-w: min(380px, 94vw);
         --skill-card-anchor-y: min(200px, 38vw);
     }
 

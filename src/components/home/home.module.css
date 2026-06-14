@@ -95,11 +95,11 @@
 }
 
 .socialMedia a:hover {
-    color: #ffffff;
+    color: #06140d;
     background: var(--accent);
     border-color: var(--accent);
     transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.22);
+    box-shadow: 0 8px 20px rgba(184, 255, 185, 0.22);
 }
 
 .oppositeSocalMedia a {
@@ -138,8 +138,8 @@
 }
 
 .heroVisualInner:hover {
-    border-color: rgba(59, 130, 246, 0.35);
-    box-shadow: 0 34px 80px rgba(0, 0, 0, 0.55), 0 0 24px rgba(59, 130, 246, 0.12);
+    border-color: rgba(184, 255, 185, 0.35);
+    box-shadow: 0 34px 80px rgba(0, 0, 0, 0.55), 0 0 24px rgba(184, 255, 185, 0.12);
 }
 
 .heroVisualGlow {

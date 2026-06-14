@@ -2,7 +2,7 @@ import styles from '@/components/home/home.module.css';
 import Link from 'next/link';
 import { CSSProperties, FC } from 'react';
 import HeroVisual from './HeroVisual';
-import ResumeCta from './ResumeCta';
+import SplitCta from '@/components/ui/SplitCta';
 
 type Profession = { text : string, i : number }
 export interface HomeProps {
@@ -12,7 +12,6 @@ export interface HomeProps {
     description : string
     professionAnimationData : Profession[]
     isMobile : boolean
-    resumeUrl : string
 }
 
 const Home : FC<HomeProps> = (props) => {
@@ -25,7 +24,7 @@ const Home : FC<HomeProps> = (props) => {
 
             <SocialMediaLinks socialMedia={props.socialMedia} />
 
-            <ResumeCta resumeUrl={props.resumeUrl} />
+            <SplitCta href="/contact" label="Get in touch" heroEnter />
         </div>
         {!props.isMobile && <HeroVisual />}
     </section>

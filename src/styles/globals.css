@@ -1,18 +1,26 @@
 :root {
-  --bg: #04070d;
-  --bg-2: #060b13;
-  --surface: #121a26;
-  --surface-2: #18212f;
-  --surface-border: rgba(255, 255, 255, 0.14);
-  --surface-border-soft: rgba(255, 255, 255, 0.06);
-  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(9, 14, 22, 0.65));
-  --accent: #3b82f6;
-  --accent-soft: #9ec5ff;
-  --accent-gradient: linear-gradient(90deg, #9ec5ff, #6fa8ff 50%, #3b82f6);
+  --bg: #000000;
+  --bg-2: #050505;
+  --surface: #181818;
+  --surface-2: #242424;
+  --surface-border: rgba(255, 255, 255, 0.12);
+  --surface-border-soft: rgba(255, 255, 255, 0.07);
+  --glass: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(12, 12, 12, 0.72));
+  --accent: #b8ffb9;
+  --accent-soft: #d8ffdb;
+  --accent-gradient: linear-gradient(90deg, #d8ffdb, #b8ffb9 52%, #8ff0a4);
+  --accent-gradient-hover: radial-gradient(
+    145% 165% at 28% 50%,
+    #f0fff1 0%,
+    #d8ffdb 22%,
+    #b8ffb9 48%,
+    #8ff0a4 72%,
+    #6ee7a0 100%
+  );
   --text: #ffffff;
-  --text-dim: #b6c2d4;
-  --text-faint: rgba(255, 255, 255, 0.55);
-  --vignette: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.07) 0%, rgba(3, 8, 16, 0) 55%);
+  --text-dim: #c9c9c9;
+  --text-faint: rgba(255, 255, 255, 0.58);
+  --vignette: radial-gradient(ellipse at 50% 0%, rgba(184, 255, 185, 0.055) 0%, rgba(0, 0, 0, 0) 55%);
   --sheen: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35) 50%, transparent);
   --blur: 14px;
 
@@ -175,8 +183,8 @@ a:focus,
 }
 
 ::selection {
-  background: rgba(59, 130, 246, 0.28);
-  color: #fff;
+  background: rgba(184, 255, 185, 0.34);
+  color: #000;
 }
 
 ::-webkit-scrollbar {

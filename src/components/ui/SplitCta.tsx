@@ -26,7 +26,12 @@ const SplitCta = ({
         .filter(Boolean)
         .join(" ");
 
-    const content = <span className={styles.splitCtaLabel}>{label}</span>;
+    const content = (
+        <>
+            <span className={styles.splitCtaLabel}>{label}</span>
+            <i className={`bx bx-up-arrow-alt ${styles.splitCtaIcon}`} aria-hidden="true" />
+        </>
+    );
 
     if (external) {
         return (
